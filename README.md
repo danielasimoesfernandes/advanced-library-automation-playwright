@@ -1,20 +1,23 @@
 # 📚 Library System – Advanced Testing Version
 
-Sistema completo de gerenciamento de biblioteca com autenticação, dashboard, favoritos, arrendamentos, compras e painel administrativo de usuários. Ideal para praticar testes de API (backend) e interface (frontend) com Node.js, Express e JavaScript puro.
+A comprehensive library management system designed specifically for Advanced Test Automation training. This project serves as a full-stack sandbox for practicing API and UI testing strategies using modern tools like Playwright, Cypress, or Selenium.
 
 ***
 
-## 🎯 Sobre o Projeto
+## 🎯 About the project
 
-Ambiente de aprendizado focado em **automação de testes** de API e UI.  
-Inclui fluxos reais de uso: cadastro/login, CRUD de livros, favoritos, empréstimos (arrendamentos), compras de livros e gestão de usuários por administradores.
+This environment is focused on QA Engineering and Test Automation. It provides complex real-world scenarios, including:
+* Multi-role authentication flows.
+* Dynamic data handling (CRUD operations).
+* State-dependent logic (Approvals, Stock management).
+* Conditional UI rendering based on user permissions.
 
 ***
 
-## ✨ Funcionalidades
+## ✨ Key Features
 
-### 🔐 Autenticação e Perfis
-- **Registro público:** Criação de conta sempre como **Aluno**.
+### 🔐 Authentication & Role-Based Access Control (RBAC)
+- **Public Registration:** Default account creation as Student.
 - **Login:** Autenticação por email e senha.
 - **Perfis de usuário:**  
   - Aluno (tipo 1)  
