@@ -74,7 +74,7 @@ test.describe('Favorites Tests', () => {
         await favoritesPage.verifyFavoritesTitle();
 
         // Verify the book is in favorites
-        const favoriteBookCard = favoritesPage.getFavoriteBookByTitle(book.nome).first();
+        const favoriteBookCard = favoritesPage.getFavoriteBook(book.nome, book.autor, book.paginas).first();
         await expect(favoriteBookCard).toBeVisible();
 
         // Clear locaStorage to avoid interference with other tests
@@ -96,6 +96,7 @@ test.describe('Favorites Tests', () => {
         const response = await bookFactory.createBookTest();
         expect(response.status()).toBe(201); // Ensure book was created
         const book = await response.json();
+        const bookID = book.id;
         console.log(`Created book: ${book.nome} by ${book.autor}`); // Log book info
 
         //Open login page
@@ -121,7 +122,7 @@ test.describe('Favorites Tests', () => {
         await bookCard.click();
 
         // Add book to favorites
-        await bookDetailsPage.verifyBooksDetailsTitle(book.id);
+        await bookDetailsPage.verifyBooksDetailsTitle(bookID);
 
         // Accept success dialog and add book to favorites
         await Promise.all([
@@ -156,7 +157,7 @@ test.describe('Favorites Tests', () => {
         await favoritesPage.verifyFavoritesTitle();
 
         // Verify the book is in favorites
-        const favoriteBookCard = favoritesPage.getFavoriteBookByTitle(book.nome).first();
+        const favoriteBookCard = favoritesPage.getFavoriteBook(book.nome, book.autor, book.paginas).first();
         await expect(favoriteBookCard).not.toBeVisible(); // Book should not be in favorites anymore
         await expect(favoriteBookCard).not.toBeAttached(); // Book element was completely removed from DOM
 
@@ -223,7 +224,7 @@ test.describe('Favorites Tests', () => {
 
         // Verify all favorite books are listed
         for (const book of [book1, book2, book3]) {
-            const favoriteBookCard = favoritesPage.getFavoriteBookByTitle(book.nome).first();
+            const favoriteBookCard = favoritesPage.getFavoriteBook(book.nome, book.autor, book.paginas).first();
             await expect(favoriteBookCard).toBeVisible();
             console.log(`Verified favorite book: ${book.nome}`); // Log verification
         };

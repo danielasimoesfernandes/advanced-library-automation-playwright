@@ -13,7 +13,9 @@ export class BookFactory {
             const nouns = ['Dragon', 'Forest', 'Castle', 'Kingdom', 'Book', 'Mystery', 'Planet',
                 'Universe', 'Quest', 'Legend', 'River', 'Tower', 'Shadow', 'Star',
                 'Maze', 'Throne', 'Knight', 'Guardian', 'Phoenix', 'Labyrinth'];
-            return `${adjectives[Math.floor(Math.random() * adjectives.length)]} ${nouns[Math.floor(Math.random() * nouns.length)]}`;
+
+            const number = Math.floor(Math.random() * 99) + 1;
+            return `${adjectives[Math.floor(Math.random() * adjectives.length)]} ${nouns[Math.floor(Math.random() * nouns.length)]} ${number}`;
         };
 
         // Generate a random author

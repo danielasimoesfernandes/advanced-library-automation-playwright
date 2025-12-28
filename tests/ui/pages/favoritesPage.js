@@ -19,7 +19,13 @@ export class FavoritesPage {
         await expect(this.noFavoritesMessage).toContainText('Você ainda não tem livros favoritos');
     };
 
-    getFavoriteBookByTitle(title) {
-        return this.page.locator('.book-card', { hasText: title });
+    getFavoriteBook(bookName, author, pages) {
+        return this.page.locator('.book-card').filter({
+            hasText: bookName
+        }).filter({
+            hasText: author
+        }).filter({
+            hasText: pages.toString()
+        });
     };
 };
