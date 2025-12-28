@@ -80,6 +80,10 @@ export class DashboardPage {
         await menuButton.click();
     };
 
+    async logout() {
+        await this.logoutButton.click();
+    };
+
 };
 
 

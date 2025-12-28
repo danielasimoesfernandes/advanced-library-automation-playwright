@@ -45,6 +45,7 @@ test.describe('Favorites Tests', () => {
 
         //Access books menu 
         await dashboardPage.clickOnMenu(dashboardPage.booksMenuButton);
+        
         await booksPage.verifyBooksTitle();
 
         // Clicar no card do livro criado
@@ -75,9 +76,14 @@ test.describe('Favorites Tests', () => {
         // Verify the book is in favorites
         const favoriteBookCard = favoritesPage.getFavoriteBookByTitle(book.nome).first();
         await expect(favoriteBookCard).toBeVisible();
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
-    test('CT-FE-014 - Add a book to favorites', async ({ page, request }) => {
+    test('CT-FE-014 - Remove a book from favorites', async ({ page, request }) => {
         const loginPage = new LoginPage(page);
         const dashboardPage = new DashboardPage(page);
         const booksPage = new BooksPage(page);
@@ -107,6 +113,7 @@ test.describe('Favorites Tests', () => {
 
         //Access books menu 
         await dashboardPage.clickOnMenu(dashboardPage.booksMenuButton);
+        await page.reload();    
         await booksPage.verifyBooksTitle();
 
         // Clicar no card do livro criado
@@ -152,6 +159,11 @@ test.describe('Favorites Tests', () => {
         const favoriteBookCard = favoritesPage.getFavoriteBookByTitle(book.nome).first();
         await expect(favoriteBookCard).not.toBeVisible(); // Book should not be in favorites anymore
         await expect(favoriteBookCard).not.toBeAttached(); // Book element was completely removed from DOM
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test('CT-FE-015 - List all favorite books from a user', async ({ page, request }) => {
@@ -226,6 +238,11 @@ test.describe('Favorites Tests', () => {
         await expect(page.locator('.book-card')).toHaveCount(0);
         await favoritesPage.verifyNoFavoritesMessage();
         console.log('Verified all favorite books were removed'); // Log verification
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
 });

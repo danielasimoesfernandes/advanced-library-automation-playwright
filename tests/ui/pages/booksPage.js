@@ -13,6 +13,11 @@ export class BooksPage {
         this.priceField = page.locator('input[type="number"][id="preco"]');
         this.addBookButton = page.locator('button[type="submit"]', { hasText: 'Adicionar Livro' });
         this.deleteButton = page.locator('button[class="btn btn-danger"]', { hasText: '🗑️ Deletar Livro' })
+        // Function to locate a book card by title and author
+        this.bookCard = (title, author) => 
+            this.page.locator('.book-card')
+                .filter({ hasText: title })
+                .filter({ hasText: author });
     }
 
     async verifyBooksTitle() {
@@ -47,5 +52,13 @@ export class BooksPage {
 
     async clickOnBookCard(bookCard) {
         await bookCard.click()
+    };
+
+    async verifyBookInfoInCard(bookCard, book) {
+        await expect(bookCard.locator('h3', { hasText: book.nome })).toBeVisible();
+        await expect(bookCard.locator('p', { hasText: `Autor: ${book.autor}` })).toBeVisible();
+        await expect(bookCard.locator('p', { hasText: `Páginas: ${book.paginas}` })).toBeVisible();
+        await expect(bookCard.locator('p', { hasText: `Estoque: ${book.estoque}` })).toBeVisible();
+        await expect(bookCard.locator('p', { hasText: `Preço: R$ ${book.preco}` })).toBeVisible();
     };
 };

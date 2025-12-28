@@ -28,3 +28,12 @@ Users iniciais:
 - Aluno:
   - Email: `aluna@teste.com`  
   - Senha: `123456`
+
+Run tests: 
+  npx playwright test tests/ui/specs/books.spec.js
+  npx playwright test tests/ui/specs/dashboard.spec.js
+  npx playwright test tests/ui/specs/favorites.spec.js
+  npx playwright test tests/ui/specs/navigationsControl.spec.js 
+  npx playwright test tests/ui/specs/purchases.spec.js 
+  npx playwright test tests/ui/specs/registrationLogin.spec.js 
+  npx playwright test tests/ui/specs/rentals.spec.js    

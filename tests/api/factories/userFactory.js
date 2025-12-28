@@ -7,8 +7,8 @@ export class UserFactory {
         // Generate unique name and email
             const firstNames = [
                 'Ana', 'Bruno', 'Carlos', 'Daniela', 'Eduardo', 'Fernanda', 'Gabriel',
-                'Helena', 'Íris', 'João', 'Kátia', 'Luís', 'Mariana', 'Nuno', 'Joana', 'Paulo',
-                'Olivia', 'Pedro', 'Raquel', 'Sérgio', 'Teresa', 'Vítor', 'Henrique', 'Ines',
+                'Helena', 'Iris', 'João', 'Katia', 'Luís', 'Mariana', 'Nuno', 'Joana', 'Paulo',
+                'Olivia', 'Pedro', 'Raquel', 'Sergio', 'Teresa', 'Vítor', 'Henrique', 'Ines',
                 'James', 'Mary', 'Robert', 'Patricia', 'John', 'Jennifer', 'Michael',
                 'Linda', 'David', 'Elizabeth', 'William', 'Barbara', 'Richard',
                 'Susan', 'Joseph', 'Jessica', 'Thomas', 'Sarah', 'Charles', 'Karen'
@@ -16,7 +16,7 @@ export class UserFactory {
             const lastNames = [
                 'Silva', 'Santos', 'Ferreira', 'Pereira', 'Oliveira', 'Costa', 'Rodrigues',
                 'Martins', 'Jesus', 'Sousa', 'Fernandes', 'Gonçalves', 'Gomes', 'Lopes',
-                'Marques', 'Alves', 'Almeida', 'Ribeiro', 'Pinto', 'Carvalho', 'Simões', 'Barbosa',
+                'Marques', 'Alves', 'Almeida', 'Ribeiro', 'Pinto', 'Carvalho', 'Simoes', 'Barbosa',
                 'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller',
                 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzales',
                 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin'

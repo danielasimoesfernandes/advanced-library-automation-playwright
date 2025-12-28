@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - heading "📚 Detalhes do Livro" [level=1] [ref=e4]
+    - generic [ref=e5]:
+      - generic [ref=e6]: Maria AlunaALUNO
+      - button "Sair" [ref=e7] [cursor=pointer]
+  - generic [ref=e8]:
+    - link "Dashboard" [ref=e9] [cursor=pointer]:
+      - /url: dashboard.html
+    - link "Livros" [ref=e10] [cursor=pointer]:
+      - /url: livros.html
+    - link "Favoritos" [ref=e11] [cursor=pointer]:
+      - /url: favoritos.html
+    - link "Meus Arrendamentos" [ref=e12] [cursor=pointer]:
+      - /url: arrendamentos.html
+    - link "Compras" [ref=e13] [cursor=pointer]:
+      - /url: compras.html
+    - link "Minhas Compras" [ref=e14] [cursor=pointer]:
+      - /url: minhas-compras.html
+  - generic [ref=e16]:
+    - img "Enchanted Dragon" [ref=e18]
+    - generic [ref=e19]:
+      - heading "Enchanted Dragon" [level=2] [ref=e20]
+      - generic [ref=e21]:
+        - strong [ref=e22]: "Autor:"
+        - text: Luna Dias
+      - generic [ref=e23]:
+        - strong [ref=e24]: "Páginas:"
+        - text: "278"
+      - generic [ref=e25]:
+        - strong [ref=e26]: "Descrição:"
+        - text: A quirky adventure for testing purposes
+      - generic [ref=e27]:
+        - strong [ref=e28]: "Data de Cadastro:"
+        - text: 28/12/2025
+      - generic [ref=e29]:
+        - button "🤍 Adicionar aos Favoritos" [ref=e30] [cursor=pointer]
+        - button "🗑️ Deletar Livro" [ref=e31] [cursor=pointer]
+        - button "← Voltar" [ref=e32] [cursor=pointer]
+```

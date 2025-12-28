@@ -26,7 +26,7 @@ export class RentalsPage {
     };
 
     async verifyRentedBookInList(bookID, status) {
-        await this.page.reload();
+        await this.page.reload({ waitUntil: 'networkidle' });
         const rentedBook = this.page.locator('.book-card', { hasText: new RegExp(`Livro ID: ${bookID}`) });
         const rentedBookStatus = rentedBook.locator('p', { hasText: `Status: ${status}` });
         await expect(rentedBook).toBeVisible({ timeout: 10000 });

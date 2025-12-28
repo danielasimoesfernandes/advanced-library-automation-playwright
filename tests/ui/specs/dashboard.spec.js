@@ -51,6 +51,11 @@ test.describe('Dashboard Tests', () => {
         //Validate books grid (max = 5)
         const count = await dashboardPage.availableBooksGrid.count();
         expect(count).toBeLessThanOrEqual(5);
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test('CT-FE-009 - Dashboard – Student vision', async ({ page, request }) => {
@@ -96,5 +101,10 @@ test.describe('Dashboard Tests', () => {
         //Validate books grid (max = 5)
         const count = await dashboardPage.availableBooksGrid.count();
         expect(count).toBeLessThanOrEqual(5);
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 }); 

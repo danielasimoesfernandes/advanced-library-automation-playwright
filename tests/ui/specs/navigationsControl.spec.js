@@ -22,6 +22,11 @@ test.describe('Navigation Control', () => {
         // Redirect to login page 
         await page.waitForURL(/login\.html$/, { timeout: 30000 });
         await loginPage.verifyLoginPage();
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test('CT-FE-006 - Dynamic Menu – Student', async ({ page }) => {
@@ -71,6 +76,11 @@ test.describe('Navigation Control', () => {
             await item.button.click();
             await expect(page).toHaveURL(item.url);
         };
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test('CT-FE-007 - Dynamic Menu – Admin', async ({ page }) => {
@@ -121,5 +131,10 @@ test.describe('Navigation Control', () => {
             await item.button.click();
             await expect(page).toHaveURL(item.url);
         };
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 });

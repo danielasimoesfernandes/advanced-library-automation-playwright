@@ -80,6 +80,10 @@ test.describe('Book Tests', () => {
         await expect(bookCard).toContainText(book.bookName);
         await expect(bookCard).toContainText(book.authorName);
 
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
 
@@ -141,6 +145,11 @@ test.describe('Book Tests', () => {
         const pagesValidation = await booksPage.pagesField.evaluate(input => input.validationMessage);
         console.log("Validation message for author:", pagesValidation);
         expect(pagesValidation).toBe("Please fill out this field.");
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
 
@@ -176,6 +185,7 @@ test.describe('Book Tests', () => {
 
         //Access books menu 
         await dashboardPage.clickOnMenu(dashboardPage.booksMenuButton);
+        await page.reload();
         await booksPage.verifyBooksTitle();
 
         // Clicar no card do livro criado
@@ -200,5 +210,10 @@ test.describe('Book Tests', () => {
         await expect(booksDetailsPage.favoriteButton).toBeVisible();
         await expect(booksDetailsPage.deleteButton).toBeVisible();
         await expect(booksDetailsPage.goBackButton).toBeVisible();  
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 });

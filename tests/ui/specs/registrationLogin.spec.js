@@ -9,7 +9,7 @@ import { RegistrationPage } from '../pages/RegistrationPage';
 import { DashboardPage } from '../pages/dashboardPage';
 
 
-test.describe('Login Page Tests', () => {
+test.describe('Login and Registration Tests', () => {
     test('CT-FE-001 - Complete studente registration flow', async ({ page }) => {
 
         const loginPage = new LoginPage(page);
@@ -47,6 +47,11 @@ test.describe('Login Page Tests', () => {
         await expect(registrationPage.email).toHaveValue('');
         await expect(registrationPage.password).toHaveValue('');
         await expect(registrationPage.confirmPassword).toHaveValue('');
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test('CT-FE-002 - Validation of Non-Matching Passwords', async ({ page }) => {
@@ -77,6 +82,11 @@ test.describe('Login Page Tests', () => {
         ]);
 
         await registrationPage.verifyRegisterPage();
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
 
     });
 
@@ -119,6 +129,11 @@ test.describe('Login Page Tests', () => {
             loggedUser.tipo
         );
         await page.evaluate(() => localStorage.clear());
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
 
@@ -145,6 +160,11 @@ test.describe('Login Page Tests', () => {
         ]);
 
         await loginPage.verifyLoginPage();
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     // EXTRA TESTS
@@ -186,6 +206,11 @@ test.describe('Login Page Tests', () => {
             loggedUser.nome,
             loggedUser.tipo
         );
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test.skip('Log in with Employee user', async ({ page }) => {
@@ -226,6 +251,11 @@ test.describe('Login Page Tests', () => {
             loggedUser.nome,
             loggedUser.tipo
         );
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 
     test.skip('Register and log in with personal user', async ({ page }) => {
@@ -259,5 +289,10 @@ test.describe('Login Page Tests', () => {
             }),
             await loginPage.logInPersonalUser()
         ]);
+
+        // Clear locaStorage to avoid interference with other tests
+        await page.evaluate(() => {
+            localStorage.clear();
+        });
     });
 });
